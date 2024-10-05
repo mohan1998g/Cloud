@@ -1,7 +1,8 @@
 Here’s another scenario of big data usage in the telecom industry focusing on network optimization and fraud detection:
 
 Scenario: Network Optimization and Fraud Detection
-Background: A major telecom company, GlobalTel, provides services across multiple regions and handles millions of subscribers. The company is focused on optimizing its network performance to ensure high quality of service (QoS) and needs to detect fraudulent activities in real-time to protect revenue.
+Background: A major telecom company, GlobalTel, provides services across multiple regions and handles millions of subscribers. 
+The company is focused on optimizing its network performance to ensure high quality of service (QoS) and needs to detect fraudulent activities in real-time to protect revenue.
 
 Big Data Usage in GlobalTel:
 1. Data Sources:
@@ -12,7 +13,9 @@ Billing and Transaction Data: Includes payment histories, prepaid top-ups, and s
 External Threat Intelligence: Data from cybersecurity databases and external feeds to detect patterns of known fraud attacks.
 A. Network Optimization Using Big Data Analytics
 Problem:
-GlobalTel faces performance degradation in certain areas, particularly in high-density urban regions. Customers are experiencing slow internet speeds, frequent dropped calls, and congestion during peak hours. The company needs to optimize its network resources to improve service quality without over-provisioning and unnecessarily increasing costs.
+GlobalTel faces performance degradation in certain areas, particularly in high-density urban regions. 
+Customers are experiencing slow internet speeds, frequent dropped calls, and congestion during peak hours. 
+The company needs to optimize its network resources to improve service quality without over-provisioning and unnecessarily increasing costs.
 
 Big Data Solution for Network Optimization:
 Data Collection & Ingestion:
@@ -25,7 +28,8 @@ Using tools like Apache Kafka and Apache Flink, GlobalTel ingests and processes 
 Geo-spatial analytics is applied to identify coverage gaps in specific regions or buildings where signal strength is low or congestion is high.
 Machine Learning for Predictive Network Maintenance:
 
-Historical network performance data is fed into machine learning models (using frameworks like Spark MLlib or TensorFlow) to predict future bottlenecks and failures. For example, predictive models can forecast network congestion in certain regions during specific times (e.g., during major events or holidays).
+Historical network performance data is fed into machine learning models (using frameworks like Spark MLlib or TensorFlow) to predict future bottlenecks and failures. 
+For example, predictive models can forecast network congestion in certain regions during specific times (e.g., during major events or holidays).
 Anomaly detection models identify unusual patterns in traffic, such as unexplained spikes in bandwidth usage or sudden drops in signal strength, indicating potential equipment failure or configuration issues.
 Dynamic Network Resource Allocation:
 
@@ -37,12 +41,15 @@ Improved QoS: Customers experience fewer dropped calls and faster internet speed
 Cost Efficiency: By optimizing resource allocation based on actual demand patterns, GlobalTel avoids over-provisioning and reduces infrastructure costs.
 B. Fraud Detection Using Big Data Analytics
 Problem:
-GlobalTel is experiencing an increase in fraudulent activities, including SIM card cloning, subscription fraud, and call spoofing. Fraudsters are using cloned SIMs to make international calls or access premium services without payment, resulting in significant revenue loss. The company needs a real-time solution to detect and prevent fraud.
+GlobalTel is experiencing an increase in fraudulent activities, including SIM card cloning, subscription fraud, and call spoofing. 
+Fraudsters are using cloned SIMs to make international calls or access premium services without payment, resulting in significant revenue loss. 
+The company needs a real-time solution to detect and prevent fraud.
 
 Big Data Solution for Fraud Detection:
 Data Collection & Integration:
 
-GlobalTel collects data from multiple sources, including Call Detail Records (CDR), customer profiles, billing data, and network logs. This data provides detailed information about call origins, destinations, durations, device IMEIs, and payment history.
+GlobalTel collects data from multiple sources, including Call Detail Records (CDR), customer profiles, billing data, and network logs. 
+This data provides detailed information about call origins, destinations, durations, device IMEIs, and payment history.
 Additionally, external threat intelligence feeds are integrated to capture known fraud schemes, patterns, and blacklisted numbers.
 Real-Time Streaming and Pattern Recognition:
 
@@ -75,6 +82,8 @@ Machine Learning Models: Fraud detection models using Spark MLlib, TensorFlow, o
 Anomaly Detection: Techniques such as isolation forests, clustering, and neural networks for real-time fraud detection.
 Geo-Analytics: Tools like GIS systems integrated with big data platforms for analyzing location-based data.
 Conclusion:
-In this scenario, GlobalTel leverages big data analytics for both network optimization and fraud detection. By analyzing real-time network traffic and customer data, the company optimizes network performance and delivers high-quality service to its users. Simultaneously, big data and machine learning models help GlobalTel detect and prevent fraud in real time, protecting its revenue and maintaining customer trust.
+In this scenario, GlobalTel leverages big data analytics for both network optimization and fraud detection. 
+By analyzing real-time network traffic and customer data, the company optimizes network performance and delivers high-quality service to its users. 
+Simultaneously, big data and machine learning models help GlobalTel detect and prevent fraud in real time, protecting its revenue and maintaining customer trust.
 
 This scenario showcases how telecom companies can use big data to address critical challenges, from improving customer experience to securing their operations from malicious activities.
