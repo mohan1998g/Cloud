@@ -1,0 +1,55 @@
+Complete AWS CLI Commands
+
+1. S3 Commands
+List all S3 buckets:
+aws s3 ls
+Copy a file from local to S3:
+aws s3 cp /path/to/local/file s3://your-bucket-name/path/in/s3/
+Sync local directory to S3:
+aws s3 sync /path/to/local/dir s3://your-bucket-name/path/in/s3/
+Delete an S3 bucket:
+aws s3 rb s3://your-bucket-name --force
+
+2. EMR Commands
+Create an EMR cluster:
+aws emr create-cluster --name "MyCluster" --use-default-roles --release-label emr-6.4.0 --instance-count 3 --instance-type m5.xlarge
+List running EMR clusters:
+aws emr list-clusters --active
+Terminate an EMR cluster:
+aws emr terminate-clusters --cluster-ids j-xxxxxxxxxxxxx
+3. EC2 Commands
+Start an EC2 instance:
+aws ec2 start-instances --instance-ids i-xxxxxxxxxxxxx
+Stop an EC2 instance:
+aws ec2 stop-instances --instance-ids i-xxxxxxxxxxxxx
+Describe EC2 instances:
+aws ec2 describe-instances
+Terminate an EC2 instance:
+aws ec2 terminate-instances --instance-ids i-xxxxxxxxxxxxx
+4. Step Functions Commands
+List state machines:
+aws stepfunctions list-state-machines
+Start execution of a state machine:
+aws stepfunctions start-execution --state-machine-arn arn:aws:states:region:account-id:stateMachine:stateMachineName
+Describe execution status:
+aws stepfunctions describe-execution --execution-arn arn:aws:states:region:account-id:execution:stateMachineName:executionName
+Stop execution of a state machine:
+aws stepfunctions stop-execution --execution-arn arn:aws:states:region:account-id:execution:stateMachineName:executionName
+5. OpenSearch Commands
+List OpenSearch domains:
+aws opensearch list-domain-names
+Describe an OpenSearch domain:
+aws opensearch describe-domain --domain-name my-domain
+Create an OpenSearch domain:
+aws opensearch create-domain --domain-name my-domain --elasticsearch-version OpenSearch_1.0
+Delete an OpenSearch domain:
+aws opensearch delete-domain --domain-name my-domain
+6. EventBridge Commands
+List EventBridge rules:
+aws events list-rules
+Put a new rule in EventBridge:
+aws events put-rule --name "MyRule" --schedule-expression "rate(5 minutes)"
+Describe an EventBridge rule:
+aws events describe-rule --name "MyRule"
+Delete an EventBridge rule:
+aws events delete-rule --name "MyRule"
