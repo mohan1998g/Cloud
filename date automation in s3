@@ -1,0 +1,11 @@
+from datetime import datetime
+today = datetime.today().strftime('%Y-%m-%d')
+
+from pyspark.sql.functions import *
+
+df = spark.read.format("csv").option("header","true").load(f"s3://zeyo41/src/{today}/")
+
+
+aggdf = df.groupBy("username").agg(sum("amount").alias("total")).withColumn("total",expr("cast(total as int)"))
+
+aggdf.write.mode("overwrite").save(f"s3://zeyo41/dest/{today}/total_amount_data")
