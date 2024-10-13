@@ -1,8 +1,7 @@
 Here’s a comprehensive list of commonly used AWS EMR (Elastic MapReduce) commands using the AWS CLI (Command Line Interface). These commands cover cluster management, adding steps, and monitoring operations.
 
 1. Create EMR Cluster
-bash
-Copy code
+
 aws emr create-cluster \
     --name "MyCluster" \
     --use-default-roles \
@@ -17,48 +16,40 @@ aws emr create-cluster \
 --instance-type: Type of EC2 instances.
 --instance-count: Number of instances.
 2. Terminate EMR Cluster
-bash
-Copy code
+
 aws emr terminate-clusters --cluster-ids j-XXXXXXXXXXXXX
 --cluster-ids: Specifies the cluster ID(s) you want to terminate.
 3. List Active EMR Clusters
-bash
-Copy code
+
 aws emr list-clusters --active
 Lists all active clusters.
 4. Describe EMR Cluster
-bash
-Copy code
+
 aws emr describe-cluster --cluster-id j-XXXXXXXXXXXXX
 Provides detailed information about a specific cluster.
 5. Add Step to EMR Cluster (e.g., Run PySpark Job)
-bash
-Copy code
+
 aws emr add-steps \
     --cluster-id j-XXXXXXXXXXXXX \
     --steps Type=Spark,Name="Spark Step",ActionOnFailure=CONTINUE,Args=[spark-submit,--deploy-mode,cluster,s3://my-bucket/scripts/my-spark-job.py]
 --cluster-id: The ID of the cluster.
 Args: Arguments to pass to the spark-submit command.
 6. List Steps in EMR Cluster
-bash
-Copy code
+
 aws emr list-steps --cluster-id j-XXXXXXXXXXXXX
 Lists all steps in the specified cluster.
 7. Describe EMR Step
-bash
-Copy code
+
 aws emr describe-step \
     --cluster-id j-XXXXXXXXXXXXX \
     --step-id s-XXXXXXXXXXXXX
 Provides details about a specific step in the cluster.
 8. Check Cluster Status
-bash
-Copy code
+
 aws emr describe-cluster --cluster-id j-XXXXXXXXXXXXX --query 'Cluster.Status.State'
 Returns the current state of the cluster (e.g., RUNNING, TERMINATED).
 9. Add Bootstrap Actions
-bash
-Copy code
+
 aws emr create-cluster \
     --name "ClusterWithBootstrap" \
     --release-label emr-6.7.0 \
@@ -69,51 +60,42 @@ aws emr create-cluster \
 --bootstrap-actions: Defines a script to execute when the cluster starts.
 10. Resize EMR Cluster (Add/Remove Nodes)
 Add instances:
-bash
-Copy code
+
 aws emr modify-instance-groups \
     --cluster-id j-XXXXXXXXXXXXX \
     --instance-groups InstanceGroupId=ig-XXXXXXXXXXXXX,InstanceCount=5
 Remove instances:
-bash
-Copy code
+
 aws emr modify-instance-groups \
     --cluster-id j-XXXXXXXXXXXXX \
     --instance-groups InstanceGroupId=ig-XXXXXXXXXXXXX,InstanceCount=2
 11. SSH into EMR Master Node
-bash
-Copy code
+
 ssh -i myKey.pem hadoop@ec2-xx-xx-xx-xx.compute-1.amazonaws.com
 Replace the IP address with the master node's public DNS.
 12. Copy Files to/from EMR Cluster
 To EMR:
-bash
-Copy code
+
 scp -i myKey.pem local-file hadoop@ec2-xx-xx-xx-xx.compute-1.amazonaws.com:/home/hadoop/
 From EMR:
-bash
-Copy code
+
 scp -i myKey.pem hadoop@ec2-xx-xx-xx-xx.compute-1.amazonaws.com:/home/hadoop/remote-file local-dir/
 13. Add/Modify Cluster Tags
-bash
-Copy code
+
 aws emr add-tags \
     --resource-id j-XXXXXXXXXXXXX \
     --tags Key=Environment,Value=Production
 14. Remove Cluster Tags
-bash
-Copy code
+
 aws emr remove-tags \
     --resource-id j-XXXXXXXXXXXXX \
     --tag-keys Environment
 15. View Cluster Logs in S3
-bash
-Copy code
+
 aws s3 ls s3://my-bucket/logs/j-XXXXXXXXXXXXX/
 Lists all log files related to the specific cluster.
 16. Monitoring Cluster via CloudWatch
-bash
-Copy code
+
 aws emr put-auto-scaling-policy \
     --cluster-id j-XXXXXXXXXXXXX \
     --instance-group-id ig-XXXXXXXXXXXXX \
