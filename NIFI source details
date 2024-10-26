@@ -1,0 +1,30 @@
+In Apache NiFi, sources refer to the various ways it can ingest data from different systems. Here’s an overview of the primary types of sources NiFi supports, organized by category:
+
+1. File Systems
+Local File System: NiFi can read from and write to the local file system using processors like GetFile and PutFile.
+Distributed File Systems: NiFi supports reading and writing to distributed storage systems like HDFS using ListHDFS, FetchHDFS, and PutHDFS.
+Object Storage: Processors such as ListS3, FetchS3Object, and PutS3Object allow integration with Amazon S3, while AzureBlobStorage processors work with Azure Blob Storage.
+2. Databases
+Relational Databases: NiFi supports database connections using processors like ExecuteSQL, QueryDatabaseTable, and GenerateTableFetch. These allow ingestion from SQL-based databases like MySQL, PostgreSQL, Oracle, and SQL Server.
+NoSQL Databases: NiFi also supports integration with NoSQL databases like MongoDB (GetMongo, PutMongo) and Couchbase (GetCouchbaseKey, PutCouchbaseKey).
+3. APIs and Web Services
+REST APIs: NiFi can pull data from RESTful APIs using InvokeHTTP, which allows it to send HTTP requests and retrieve responses.
+WebSockets: For real-time data streaming, NiFi provides ListenWebSocket and PutWebSocket processors.
+SOAP Services: NiFi can connect to SOAP-based web services using the InvokeHTTP processor, though additional configuration for XML handling may be necessary.
+4. Streaming Platforms
+Kafka: NiFi has built-in support for Apache Kafka with processors like ConsumeKafka and PublishKafka, enabling it to both consume from and publish to Kafka topics.
+JMS: NiFi can connect to JMS (Java Message Service) brokers like ActiveMQ and IBM MQ using ConsumeJMS and PublishJMS.
+MQTT: For IoT use cases, NiFi provides ConsumeMQTT and PublishMQTT processors to handle MQTT messaging.
+5. Messaging Systems
+RabbitMQ: With ConsumeAMQP and PublishAMQP processors, NiFi can consume messages from and publish messages to RabbitMQ.
+Amazon SQS: NiFi integrates with Amazon SQS using the GetSQS and PutSQS processors to read from and send messages to SQS queues.
+6. Sensors and IoT Devices
+ListenUDP / ListenTCP: NiFi can listen to data sent over UDP or TCP, which is commonly used for ingesting data from IoT devices.
+ListenSyslog: The ListenSyslog processor allows NiFi to receive Syslog data for monitoring and logging systems.
+CoAP (Constrained Application Protocol): NiFi supports CoAP through third-party processors for IoT use cases.
+7. Email Systems
+IMAP and POP3: NiFi can retrieve emails using ConsumeIMAP and ConsumePOP3 processors. These processors can also extract attachments from emails.
+8. Social Media and External Services
+Twitter: Using the GetTwitter processor, NiFi can ingest data from Twitter streams.
+Other Cloud Services: NiFi provides processors for specific cloud integrations like GetAzureEventHub for Azure Event Hubs and GetGCSObject for Google Cloud Storage.
+Each source has a corresponding set of NiFi processors that handle data ingestion, transformation, and delivery based on the data's origin and the requirements for data flow.
